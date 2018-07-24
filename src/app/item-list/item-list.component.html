@@ -1,12 +1,28 @@
-<p>There are {{totalItems()}} items in stock</p>
 
-<ul>
-  <li *ngFor="let item of myItems">
-    <h2>{{item.name | uppercase}}</h2>
-    <p>{{item.description}}</p>
-    <p>{{item.price | currency:'EUR':true}}</p>
-    <p *ngIf="item.stock > 0">{{item.stock}} in Stock</p>
-    <p *ngIf="item.stock === 0">Out of Stock</p>
-  </li>
-</ul>
+<section class="text-center">
+  <div class="container">
+    <p class="lead text-muted mb-4">There are {{totalItems()}} items in stock</p>
+  </div>
+</section>
 
+<div class="container">
+  <div class="card-deck mb-3 text-center">
+    <div class="card mb-4 shadow-sm" *ngFor="let item of myItems">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">{{item.name | uppercase}}</h4>
+      </div>
+      <div class="card-body">
+        <h1 class="card-title pricing-card-title">{{item.price | currency:'EUR':true}}</h1>
+        <ul class="list-unstyled mt-3 mb-4">
+          <li>{{item.description}}</li>
+        </ul>
+        <!--<button type="button" class="btn btn-lg btn-block btn-outline-primary">Sign up for free</button>-->
+        <h1>
+          <span class="badge badge-secondary" *ngIf="item.stock > 0">{{item.stock}} in Stock</span>
+          <span class="badge badge-secondary" *ngIf="item.stock === 0">Out of Stock</span>
+        </h1>
+      </div>
+    </div>
+  </div>
+
+</div>
