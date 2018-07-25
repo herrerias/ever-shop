@@ -20,4 +20,18 @@ export class ItemListComponent implements OnInit {
     return this.myItems.reduce( (prev, current) => prev + current.stock, 0);
   }
 
+  downQuantity(item: Item){
+    if( item.quantity > 0 ){
+      item.quantity--;
+      item.stock++;
+    }
+  }
+
+  upQuantity(item: Item) {
+    if( item.stock > 0 ){
+      item.quantity++;
+      item.stock--;
+    }
+  }
+
 }

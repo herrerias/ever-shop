@@ -5,20 +5,29 @@ export const ITEMS: Item[] = [{
     'name': 'Item name',
     'description': 'These item is the best one',
     'price': 14.99,
-    'stock': 5
+    'stock': 5,
+    'image': '../assets/pic1.png',
+    'selected': false,
+    'quantity': 0
   },
   {
     'id': 2,
     'name': 'Another Item name',
     'description': 'These item is the smallest',
     'price': 5,
-    'stock': 7
+    'stock': 7,
+    'image': '../assets/pic2.png',
+    'selected': false,
+    'quantity': 0
   },
   {
     'id': 3,
     'name': 'A cheap Item',
     'description': 'The cheapest item!',
     'price': 3.5,
-    'stock': 0}];
+    'stock': 0,
+    'image': '../assets/pic3.png',
+    'selected': true,
+    'quantity': 0}];
 
   
