@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Item } from './item.model';
+import { Item, Mode } from './item.model';
 import { ITEMS } from './mocks';
 import { ItemListService } from './item-list.service';
 
@@ -9,12 +9,18 @@ import { ItemListService } from './item-list.service';
   styleUrls: ['./item-list.component.css']
 })
 export class ItemListComponent implements OnInit {
-  myItems: Item[];
+  myItems: Item[] = [];
+  viewMode: Mode = Mode.View;
+  editMode: Mode = Mode.Edit;
   
   constructor(private itemListService: ItemListService) { }
 
   ngOnInit() {
-    this.myItems = this.itemListService.getItemList();
+    this.itemListService.getItemList()
+      .subscribe( (data: Item[]) => this.myItems = data,
+                  error => console.error(error),
+                  () => console.log('My item list is loaded!')
+    );
   }
 
   totalItems() {
@@ -35,15 +41,37 @@ export class ItemListComponent implements OnInit {
     }
   }
 
-  myFunction(item: Item) {
-    if( item.quantity >= 0 ) {
-      if( item.quantity >= item.stock ) {
-        item.quantity = item.stock;
-        item.stock = 0;
-      } else {
-        item.stock -= item.quantity;
-      }
+  showEditIcon(item: Item) {
+    item.icon = true;
+  }
+
+  hideEditIcon(item: Item) {
+    item.icon = false;
+  }
+
+  changeMode(item: Item, mode: Mode){
+    item.icon = false;
+    item.mode = mode;
+    if( item.mode === Mode.View ){
+      this.updateItem(item);
     }
+  }
+
+  addItem(item: Item) {
+    this.itemListService.addItem(item)
+      .subscribe(item => this.myItems.push(item));
+  }
+
+  deleteItem(item: Item) {
+    this.itemListService.deleteItem(item.id)
+      .subscribe(
+        data => {
+          this.myItems = this.myItems.filter( el => {return el.id !== item.id} );
+      });
+  }
+
+  updateItem(item: Item) {
+    this.itemListService.updateItem(item).subscribe();
   }
 
 }

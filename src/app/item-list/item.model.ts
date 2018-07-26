@@ -1,3 +1,8 @@
+export enum Mode {
+    Edit,
+    View
+}
+
 export class Item {
     id: number;
     name: string;
@@ -7,4 +12,6 @@ export class Item {
     image: string;
     selected: boolean;
     quantity: number;
+    mode: Mode;
+    icon: boolean;
 }

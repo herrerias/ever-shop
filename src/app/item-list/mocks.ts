@@ -8,7 +8,9 @@ export const ITEMS: Item[] = [{
     'stock': 5,
     'image': '../assets/pic1.png',
     'selected': false,
-    'quantity': 0
+    'quantity': 0,
+    'mode': 1,
+    'icon': false
   },
   {
     'id': 2,
@@ -18,7 +20,9 @@ export const ITEMS: Item[] = [{
     'stock': 7,
     'image': '../assets/pic2.png',
     'selected': false,
-    'quantity': 0
+    'quantity': 0,
+    'mode': 1,
+    'icon': false
   },
   {
     'id': 3,
@@ -28,6 +32,8 @@ export const ITEMS: Item[] = [{
     'stock': 0,
     'image': '../assets/pic3.png',
     'selected': true,
-    'quantity': 0}];
+    'quantity': 0,
+    'mode': 1,
+    'icon': false}];
 
   
