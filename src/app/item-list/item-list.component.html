@@ -22,7 +22,8 @@
                   </button>
                 </div>
                 <div class="col-2">
-                  <input class="form-control form-control-sm" type="text" placeholder="0" [(ngModel)]="item.quantity" name="quantity">
+                  <input name="quantity" class="form-control form-control-sm" type="number" placeholder="0" 
+                    [(ngModel)]="item.quantity" (ngModelChange)="myFunction(item)" [disabled]="item.stock === 0">
                 </div>
                 <div class="col-5 text-left">
                   <button type="button" class="btn btn-info btn-sm" (click)="upQuantity(item)" [disabled]="item.stock === 0">

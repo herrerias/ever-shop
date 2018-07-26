@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { ItemListComponent } from './item-list/item-list.component';
 import { FormsModule } from '@angular/forms';
+import { ItemListService } from './item-list/item-list.service';
 
 
 @NgModule({
@@ -15,7 +16,7 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [ItemListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
