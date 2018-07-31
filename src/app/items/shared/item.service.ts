@@ -11,7 +11,7 @@ const httpOptions = {
 };
 
 @Injectable()
-export class ItemListService {
+export class ItemService {
     URL_BASE: string = 'http://localhost:3000/item-list';
 
     constructor(private http: HttpClient) {}

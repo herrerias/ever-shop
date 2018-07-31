@@ -1,0 +1,25 @@
+
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-8 text-left">
+        <p class="lead text-muted mb-4">There are {{totalItems()}} items in stock</p>
+      </div>
+      <div class="col-4 text-right">
+        <button type="button" class="btn btn-outline-secondary btn-md" (click)="orderItems()" [disabled]="cart.items.length === 0">
+          <span class="fa fa-shopping-cart" aria-hidden="true"></span>
+          <span class="badge badge-pill badge-success ml-1">{{cart.items.length}}</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="card-deck mb-4 text-center">
+    <ng-container *ngFor="let item of myItems">
+      <app-item [item]="item" (quantity)="addToCart(item)" (delete)="deleteItem(item)"></app-item>
+    </ng-container>
+  </div>
+</div>

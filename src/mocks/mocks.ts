@@ -1,4 +1,4 @@
-import { Item } from "./item.model";
+import { Item } from "../app/items/shared/item.model";
 
 export const ITEMS: Item[] = [{
     'id': 1,

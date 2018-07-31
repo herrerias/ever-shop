@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { preserveWhitespacesDefault } from '../../node_modules/@angular/compiler';
+import { preserveWhitespacesDefault } from '@angular/compiler';
 
 @Component({
   selector: 'app-root',

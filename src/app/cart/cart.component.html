@@ -1,0 +1,18 @@
+<h4 class="d-flex justify-content-between align-items-center mb-3" *ngIf="!onlyRead">
+  <span class="text-muted">Your cart</span>
+  <span class="badge badge-secondary badge-pill">{{cart.items.length}}</span>
+</h4>
+<ul class="list-group mb-3">
+  <li class="list-group-item d-flex justify-content-between lh-condensed" *ngFor="let item of cart.items">
+    <div>
+      <h6 class="my-0">{{item.name}}</h6>
+      <small class="text-muted">You checked {{item.quantity}}</small>
+    </div>
+    <span class="text-muted">{{ item.price*item.quantity| currency:'EUR'}}</span>
+    <span *ngIf="!onlyRead" class="fa fa-trash-o" (click)="remove(item)"></span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between">
+    <span>Total</span>
+    <strong>{{getTotalAmount() | currency:'EUR'}}</strong>
+  </li>
+</ul>
