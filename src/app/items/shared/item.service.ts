@@ -1,7 +1,7 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Item } from "./item.model";
-import { Observable } from "rxjs";
+import { Item } from './item.model';
+import { Observable } from 'rxjs';
 
 const httpOptions = {
     headers: new HttpHeaders({
@@ -12,7 +12,7 @@ const httpOptions = {
 
 @Injectable()
 export class ItemService {
-    URL_BASE: string = 'http://localhost:3000/item-list';
+    URL_BASE = 'http://localhost:3000/item-list';
 
     constructor(private http: HttpClient) {}
 

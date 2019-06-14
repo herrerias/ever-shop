@@ -35,6 +35,26 @@
       "quantity": 0,
       "mode": 1,
       "icon": false
+    },
+    {
+      "name": "sdfaksdjf",
+      "description": "Descripción en condciones",
+      "stock": 22,
+      "price": 23,
+      "image": "assets/pic4.png",
+      "id": 4,
+      "mode": 1,
+      "selected": false,
+      "icon": false,
+      "quantity": 0
+    },
+    {
+      "id": 5,
+      "name": "kdsjfas",
+      "description": "sdkfjasdk",
+      "stock": 1,
+      "price": 5,
+      "image": "assets/pic4.png"
     }
   ]
 }

@@ -2,7 +2,6 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { Order } from './shared/order.model';
 import { CartService } from '../cart/shared/cart.service';
 import { ShippingInfo } from '../shipping-info/shared/shipping-info.model';
-import { DOCUMENT } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-order',
@@ -12,9 +11,9 @@ import { DOCUMENT } from '@angular/platform-browser';
 export class OrderComponent implements OnInit {
   order: Order;
 
-  constructor(private cartService: CartService, @Inject(DOCUMENT) private document: any) { 
+  constructor(private cartService: CartService) {
     this.order = new Order();
-    this.order.cart = this.cartService.getCart(); 
+    this.order.cart = this.cartService.getCart();
     this.order.shippingInfo = new ShippingInfo();
   }
 
@@ -22,9 +21,9 @@ export class OrderComponent implements OnInit {
   }
 
   orderSubmitted(submitted: boolean) {
-    if( submitted ){
-      this.document.getElementById('modalOrderBtn').click();
-    }
+    // if( submitted ){
+    //   this.document.getElementById('modalOrderBtn').click();
+    // }
   }
 
 }

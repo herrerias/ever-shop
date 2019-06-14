@@ -13,13 +13,14 @@ import { CartComponent } from './cart/cart.component';
 import { CartService } from './cart/shared/cart.service';
 import { OrderComponent } from './order/order.component';
 import { ShippingInfoComponent } from './shipping-info/shipping-info.component';
+import { ItemDetailComponent } from './items/item-detail/item-detail.component';
 
 const routes: Routes = [
     { path: '', component: ItemsComponent },
     { path: 'home', component: ItemsComponent },
     { path: 'order', component: OrderComponent }
   ];
-  
+
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ const routes: Routes = [
     ItemComponent,
     CartComponent,
     OrderComponent,
-    ShippingInfoComponent
+    ShippingInfoComponent,
+    ItemDetailComponent
   ],
   imports: [
     BrowserModule,

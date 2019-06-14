@@ -10,9 +10,8 @@ import { ItemService } from '../shared/item.service';
 })
 export class ItemComponent implements OnInit {
   @Input() item: Item;
-  //@Output() addCart: EventEmitter<Item> = new EventEmitter<Item>();
   @Output() delete: EventEmitter<boolean> = new EventEmitter<boolean>();
-  @Output() quantity: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() addCart: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   viewMode: Mode = Mode.View;
   editMode: Mode = Mode.Edit;
@@ -20,17 +19,21 @@ export class ItemComponent implements OnInit {
   constructor(private itemService: ItemService) { }
 
   ngOnInit() {
+    this.item.mode = this.viewMode;
+    this.item.selected = false;
+    this.item.icon = false;
+    this.item.quantity = 0;
   }
 
   downQuantity() {
-    if( this.item.quantity > 0 ) {
+    if ( this.item.quantity > 0 ) {
       this.item.quantity--;
       this.item.stock++;
     }
   }
- 
+
   upQuantity(item: Item) {
-    if( this.item.stock > 0 ){
+    if ( this.item.stock > 0 ) {
       this.item.quantity++;
       this.item.stock--;
     }
@@ -44,10 +47,10 @@ export class ItemComponent implements OnInit {
     this.item.icon = false;
   }
 
-  changeMode(item: Item, mode: Mode){
+  changeMode(item: Item, mode: Mode) {
     this.item.icon = false;
     this.item.mode = mode;
-    if( this.item.mode === Mode.View ){
+    if ( this.item.mode === Mode.View ) {
       this.updateItem();
     }
   }
@@ -57,7 +60,7 @@ export class ItemComponent implements OnInit {
   }
 
   addToCart() {
-    this.quantity.emit(true);
+    this.addCart.emit(true);
   }
 
   emitDelete() {

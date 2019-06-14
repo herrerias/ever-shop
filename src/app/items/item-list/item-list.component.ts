@@ -11,20 +11,24 @@ import { Router } from '@angular/router';
   styleUrls: ['./item-list.component.css']
 })
 export class ItemListComponent implements OnInit {
+  showNewItemPanel = false;
   myItems: Item[] = [];
 
   cart: Cart;
-  
+
   constructor(private itemService: ItemService, private cartService: CartService, private router: Router) { }
 
   ngOnInit() {
+    this.loadItems();
+    this.cart = new Cart();
+  }
+
+  loadItems() {
     this.itemService.getItemList()
       .subscribe( (data: Item[]) => this.myItems = data,
                   error => console.error(error),
                   () => console.log('My item list is loaded!')
     );
-
-    this.cart = new Cart();
   }
 
   totalItems() {
@@ -40,16 +44,17 @@ export class ItemListComponent implements OnInit {
     this.router.navigateByUrl('/order');
   }
 
-  addItem(item: Item) {
+  addNewItem(item: Item) {
     this.itemService.addItem(item)
-      .subscribe(item => this.myItems.push(item));
+      .subscribe(data => this.loadItems() );
+    this.showNewItemPanel = false;
   }
 
   deleteItem(item: Item) {
     this.itemService.deleteItem(item.id)
       .subscribe(
         data => {
-          this.myItems = this.myItems.filter( el => {return el.id !== item.id} );
+          this.myItems = this.myItems.filter( el => el.id !== item.id );
       });
   }
 

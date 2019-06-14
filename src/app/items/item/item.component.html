@@ -2,7 +2,7 @@
   <div class="card-header"><h5 class="my-0 font-weight-normal">{{item.name | uppercase}}</h5></div>
 <img class="card-img-top" [src]="item.image" alt="Card image cap">
 <div class="card-body">
-  <h1 class="card-title pricing-card-title">{{item.price | currency:'EUR':true}}</h1>
+  <h1 class="card-title pricing-card-title">{{item.price | currency:'EUR':'symbol'}}</h1>
   <ul class="list-unstyled mt-3 mb-4">
     <li>
       <div class="row" *ngIf="item.mode === viewMode" (click)="changeMode(item,editMode)">
