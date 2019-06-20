@@ -27,7 +27,7 @@
 <div class="container" *ngIf="!showNewItemPanel">
   <div class="card-deck mb-4 text-center">
       <ng-container *ngFor="let item of myItems">
-        <app-item [item]="item" (addCart)="addToCart(item)" (delete)="deleteItem(item)"></app-item>
+        <app-item [item]="item" (addCart)="addToCart($event)" (delete)="deleteItem($event)" (edit)="editItem($event)"></app-item>
       </ng-container>
   </div>
 </div>

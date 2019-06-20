@@ -20,6 +20,11 @@ export class ItemService {
         return this.http.get<Item []>(this.URL_BASE);
     }
 
+    getItem(id: number): Observable<Item> {
+        const url = `${this.URL_BASE}/${id}`;
+        return this.http.get<Item>(url);
+    }
+
     addItem (item: Item): Observable<Item> {
         return this.http.post<Item>(this.URL_BASE, item, httpOptions);
     }

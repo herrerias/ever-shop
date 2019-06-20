@@ -54,12 +54,15 @@
 </div>
 <div class="card-footer">
   <div class="row">
-    <div class="col-sm-9">
+    <div class="col-sm-8 p-0">
       <button type="button" class="btn btn-mdg btn-block btn-info" (click)="addToCart()" [disabled]="item.quantity === 0">Add to Cart</button>
     </div>
-    <div class="col-sm-3">
+    <div class="col-sm-4 p-0">
         <button type="button" class="btn btn-outline-secondary btn-md" (click)="emitDelete()">
             <span class="fa fa-trash-o" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="btn btn-outline-secondary btn-md ml-1" (click)="emitEdit()">
+            <span class="fa fa-pencil" aria-hidden="true"></span>
         </button>
     </div>
   </div>

@@ -12,6 +12,7 @@ export class ItemComponent implements OnInit {
   @Input() item: Item;
   @Output() delete: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() addCart: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() edit: EventEmitter<number> = new EventEmitter<number>();
 
   viewMode: Mode = Mode.View;
   editMode: Mode = Mode.Edit;
@@ -65,6 +66,10 @@ export class ItemComponent implements OnInit {
 
   emitDelete() {
     this.delete.emit(true);
+  }
+
+  emitEdit() {
+    this.edit.emit(this.item.id);
   }
 
 }

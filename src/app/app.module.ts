@@ -8,19 +8,14 @@ import { ItemService } from './items/shared/item.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ItemsComponent } from './items/items.component';
 import { ItemComponent } from './items/item/item.component';
-import { RouterModule, Routes } from '@angular/router';
 import { CartComponent } from './cart/cart.component';
 import { CartService } from './cart/shared/cart.service';
 import { OrderComponent } from './order/order.component';
 import { ShippingInfoComponent } from './shipping-info/shipping-info.component';
 import { ItemDetailComponent } from './items/item-detail/item-detail.component';
-
-const routes: Routes = [
-    { path: '', component: ItemsComponent },
-    { path: 'home', component: ItemsComponent },
-    { path: 'order', component: OrderComponent }
-  ];
-
+import { routing } from './app.routes';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ItemEditComponent } from './items/item-edit/item-edit.component';
 
 @NgModule({
   declarations: [
@@ -31,14 +26,16 @@ const routes: Routes = [
     CartComponent,
     OrderComponent,
     ShippingInfoComponent,
-    ItemDetailComponent
+    ItemDetailComponent,
+    PageNotFoundComponent,
+    ItemEditComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes)
+    routing
   ],
   providers: [ItemService, CartService],
   bootstrap: [AppComponent]

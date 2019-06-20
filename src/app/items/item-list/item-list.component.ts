@@ -41,7 +41,8 @@ export class ItemListComponent implements OnInit {
 
   orderItems() {
     this.cartService.setCart(this.cart);
-    this.router.navigateByUrl('/order');
+    // this.router.navigateByUrl('/order');
+    this.router.navigate(['/order']);
   }
 
   addNewItem(item: Item) {
@@ -56,6 +57,10 @@ export class ItemListComponent implements OnInit {
         data => {
           this.myItems = this.myItems.filter( el => el.id !== item.id );
       });
+  }
+
+  editItem(id: number) {
+    this.router.navigate(['/item', id]);
   }
 
 }

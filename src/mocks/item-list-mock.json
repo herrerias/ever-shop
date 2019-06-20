@@ -37,8 +37,8 @@
       "icon": false
     },
     {
-      "name": "sdfaksdjf",
-      "description": "Descripción en condciones",
+      "name": "un nombre",
+      "description": "Descripción en condciones , mejor",
       "stock": 22,
       "price": 23,
       "image": "assets/pic4.png",
@@ -50,7 +50,7 @@
     },
     {
       "id": 5,
-      "name": "kdsjfas",
+      "name": "Nombre verdadero",
       "description": "sdkfjasdk",
       "stock": 1,
       "price": 5,

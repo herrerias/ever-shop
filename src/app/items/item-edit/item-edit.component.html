@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-6 p-0 m-3">
+      <div class="card m-2 shadow-sm" *ngIf="item">
+        <div class="card-body">
+          <div class="row m-1 m-1">
+            <div class="col-4">
+              <span>Item Name</span>
+            </div>
+            <div class="col-8">
+              <input type="text" class="form-control" [(ngModel)]="item.name"/>
+            </div>
+          </div>
+          <div class="row m-1">
+            <div class="col-4">
+              <span>Item Description</span>
+            </div>
+            <div class="col-8">
+              <textarea class="form-control" [(ngModel)]="item.description" rows="3"></textarea>
+            </div>
+          </div>
+          <div class="row m-1">
+            <div class="col-4">
+              <span>Stock</span>
+            </div>
+            <div class="col-8">
+              <input type="number" class="form-control" placeholder="0" [(ngModel)]="item.stock"/>
+            </div>
+          </div>
+          <div class="row m-1">
+            <div class="col-4">
+              <span>Price (€)</span>
+            </div>
+            <div class="col-8">
+              <input type="number" class="form-control" placeholder="0" [(ngModel)]="item.price"/>
+            </div>
+          </div>
+          <div class="row m-1">
+            <div class="col-4">
+              <span>Image Name (*.*)</span>
+            </div>
+            <div class="col-8">
+              <input type="text" class="form-control" [(ngModel)]="item.image"/>
+            </div>
+          </div>
+          <div class="row m-1">
+            <div class="col-12">
+              <img [src]="'assets/'+item.image" *ngIf="item.image !== undefined"/>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer text-right">
+          <a class="btn btn-mdg btn-outline-secondary" routerLink="/home">Cancel</a>
+          <button class="btn btn-mdg btn-primary ml-2" (click)="save()">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
