@@ -1,4 +1,4 @@
-import { Item } from "../app/items/shared/item.model";
+import { Item } from '../app/items/shared/item.model';
 
 export const ITEMS: Item[] = [{
     'id': 1,
@@ -35,5 +35,3 @@ export const ITEMS: Item[] = [{
     'quantity': 0,
     'mode': 1,
     'icon': false}];
-
-  
