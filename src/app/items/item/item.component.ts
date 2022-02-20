@@ -10,8 +10,8 @@ import { ItemService } from '../shared/item.service';
 })
 export class ItemComponent implements OnInit {
   @Input() item: Item;
-  @Output() delete: EventEmitter<boolean> = new EventEmitter<boolean>();
-  @Output() addCart: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() delete: EventEmitter<Item> = new EventEmitter<Item>();
+  @Output() addCart: EventEmitter<Item> = new EventEmitter<Item>();
   @Output() edit: EventEmitter<number> = new EventEmitter<number>();
 
   viewMode: Mode = Mode.View;
@@ -26,7 +26,7 @@ export class ItemComponent implements OnInit {
     this.item.quantity = 0;
   }
 
-  downQuantity() {
+  downQuantity(item: Item) {
     if ( this.item.quantity > 0 ) {
       this.item.quantity--;
       this.item.stock++;
@@ -61,11 +61,11 @@ export class ItemComponent implements OnInit {
   }
 
   addToCart() {
-    this.addCart.emit(true);
+    this.addCart.emit(this.item);
   }
 
   emitDelete() {
-    this.delete.emit(true);
+    this.delete.emit(this.item);
   }
 
   emitEdit() {

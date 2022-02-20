@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { preserveWhitespacesDefault } from '@angular/compiler';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +6,7 @@ import { preserveWhitespacesDefault } from '@angular/compiler';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'EverShop';
+  title = 'Awesome Shop';
 }
 
 

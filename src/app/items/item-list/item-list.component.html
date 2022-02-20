@@ -7,7 +7,7 @@
       <div class="col-4 text-right">
         <button type="button" class="btn btn-outline-secondary btn-md" (click)="orderItems()" [disabled]="cart.items.length === 0">
           <span class="fa fa-shopping-cart" aria-hidden="true"></span>
-          <span class="badge badge-pill badge-success ml-1">{{cart.items.length}}</span>
+          <span class="badge badge-pill badge-success ml-1 text-success">{{cart.items.length}}</span>
         </button>
       </div>
     </div>
@@ -25,9 +25,11 @@
 
 
 <div class="container" *ngIf="!showNewItemPanel">
-  <div class="card-deck mb-4 text-center">
+  <div class="row">
       <ng-container *ngFor="let item of myItems">
-        <app-item [item]="item" (addCart)="addToCart($event)" (delete)="deleteItem($event)" (edit)="editItem($event)"></app-item>
+        <div class="col-sm-3 text-center">
+          <app-item [item]="item" (addCart)="addToCart($event)" (delete)="deleteItem($event)" (edit)="editItem($event)"></app-item>
+        </div>
       </ng-container>
   </div>
 </div>
